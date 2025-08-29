@@ -1,0 +1,44 @@
+# Assignment 1: Smartphone Class with Inheritance & Encapsulation
+
+class Device:
+    """Base class for all devices"""
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def device_info(self):
+        return f"{self.brand} {self.model}"
+
+
+class Smartphone(Device):
+    """Child class inheriting from Device"""
+    def __init__(self, brand, model, storage, battery):
+        super().__init__(brand, model)   # call parent constructor
+        self.__storage = storage        # encapsulated attribute (private)
+        self.battery = battery
+
+    # Encapsulation: getter and setter for storage
+    def get_storage(self):
+        return self.__storage
+
+    def set_storage(self, new_storage):
+        if new_storage > 0:
+            self.__storage = new_storage
+        else:
+            print("❌ Storage must be positive!")
+
+    # Method to simulate behavior
+    def charge(self):
+        print(f"{self.device_info()} is charging 🔋")
+
+    def call(self, number):
+        print(f"{self.device_info()} is calling {number} 📞")
+
+
+# Example usage
+phone1 = Smartphone("Samsung", "Galaxy A15", 128, "5000mAh")
+phone1.charge()
+phone1.call("+254700000000")
+print("Storage:", phone1.get_storage())
+phone1.set_storage(256)
+print("Updated Storage:", phone1.get_storage())
