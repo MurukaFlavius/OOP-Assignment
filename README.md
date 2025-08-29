@@ -1,0 +1,1 @@
+Python OOP and file handling assignments showcasing class design, inheritance, encapsulation, polymorphism, and exception handling with practical examples including smartphones, vehicles, and file read/write error management.
